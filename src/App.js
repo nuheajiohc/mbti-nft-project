@@ -1,5 +1,8 @@
+import classes from "./App.module.css";
+import Router from "./components/Router/Router";
+
 function App() {
-  return <div className="App"></div>;
+  return <Router />;
 }
 
 export default App;
