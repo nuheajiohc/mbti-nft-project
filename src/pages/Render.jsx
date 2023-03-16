@@ -1,29 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Home from "./Home/Home";
 import PersonalityTest from "./PersonalityTest/PersonalityTest";
 import Result from "./Result/Result";
 
 const Render = () => {
-  const [typeResult, setTypeResult] = useState();
+  const [currentPage, setCurrentPage] = useState("homePage");
+  const [typeResult, setTypeResult] = useState(null);
 
-  const moveResultPage = () => {
-    setCurrentPage(<Result />);
-  };
-
-  const moveToTestPage = () => {
-    setCurrentPage(
-      <PersonalityTest
-        onClick={moveResultPage}
-        onSendTypeResult={setTypeResult}
-      />
-    );
-  };
-  console.log(typeResult);
-  const [currentPage, setCurrentPage] = useState(
-    <Home onClick={moveToTestPage} />
+  return (
+    <>
+      {currentPage === "homePage" && (
+        <Home onClick={() => setCurrentPage("testPage")} />
+      )}
+      {currentPage === "testPage" && (
+        <PersonalityTest
+          onClick={() => setCurrentPage("resultPage")}
+          onSendTypeResult={type => setTypeResult(type)}
+        />
+      )}
+      {currentPage === "resultPage" && <Result myPersonalType={typeResult} />}
+    </>
   );
-
-  return <>{currentPage}</>;
 };
 
 export default Render;
