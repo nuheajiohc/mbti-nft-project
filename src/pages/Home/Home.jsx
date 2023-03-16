@@ -1,13 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import Title from "../../components/Title/Title";
 import classes from "./Home.module.css";
 
-const Home = () => {
-  const navigate = useNavigate();
-
+const Home = props => {
   const moveToTestPage = () => {
-    navigate("/personalityTest", { replace: true });
+    props.onClick();
   };
+
   return (
     <section>
       <Title></Title>
