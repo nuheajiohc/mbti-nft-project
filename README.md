@@ -1,1 +1,1 @@
-# mbti-nft-project
+# 성격 유형 검사를 통해 자신만의 고유 NFT 만들기
