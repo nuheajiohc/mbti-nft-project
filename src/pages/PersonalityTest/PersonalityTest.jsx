@@ -21,12 +21,22 @@ const PersonalityTest = props => {
       ...typeCount,
       [selectedType]: typeCount[selectedType] + 1,
     };
-    const typeCountEntries = Object.entries(includedLastSeletedTypeCount);
-    const sortedTypeCount = typeCountEntries.sort((a, b) => b[1] - a[1]);
-    let result = sortedTypeCount
-      .slice(0, 4)
-      .map(([key, value]) => key)
-      .join("");
+    let result =
+      includedLastSeletedTypeCount.E >= includedLastSeletedTypeCount.I
+        ? "E"
+        : "I";
+    result +=
+      includedLastSeletedTypeCount.N >= includedLastSeletedTypeCount.S
+        ? "N"
+        : "S";
+    result +=
+      includedLastSeletedTypeCount.F >= includedLastSeletedTypeCount.T
+        ? "F"
+        : "T";
+    result +=
+      includedLastSeletedTypeCount.P >= includedLastSeletedTypeCount.J
+        ? "P"
+        : "J";
     return result;
   };
 
